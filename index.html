@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GIUSEPPE - Portfolio</title>
+<style>
+  /* Reset and base */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Container */
+  .container {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Title with glow effect */
+  header h1 {
+    font-size: 3.5rem;
+    letter-spacing: 0.15em;
+    color: #39ff14;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    user-select: none;
+    animation: neonGlow 3s ease-in-out infinite alternate;
+  }
+  @keyframes neonGlow {
+    0%, 100% { text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #00ff00, 0 0 40px #00ff00; }
+    50% { text-shadow: 0 0 20px #39ff14, 0 0 40px #39ff14, 0 0 60px #00ff00, 0 0 80px #00ff00; }
+  }
+
+  /* Image slider container */
+  .image-slider {
+    overflow: hidden;
+    margin: 2rem 0;
+    border: 2px solid #39ff14;
+    border-radius: 10px;
+    background-color: #111;
+  }
+
+  /* Animate image row sliding from right to left */
+  .image-track {
+    display: flex;
+    width: max-content;
+    animation: scrollLeft 20s linear infinite;
+  }
+
+  @keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50%)); }
+  }
+
+  .image-track img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 6px;
+    filter: drop-shadow(0 0 5px #39ff14);
+    transition: transform 0.3s ease;
+  }
+  .image-track img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 12px #00ff00);
+  }
+
+  /* Content area for details - editable */
+  .details {
+    background-color: #111;
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    border: 2px solid #39ff14;
+    margin-bottom: 3rem;
+  }
+
+  .details h2 {
+    color: #39ff14;
+    margin-bottom: 1rem;
+  }
+
+  .details p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+    max-width: 600px;
+  }
+
+  /* Footer/contact */
+  footer {
+    text-align: center;
+    padding: 1.2rem 0;
+    background-color: #111;
+    border-top: 2px solid #39ff14;
+    font-size: 0.95rem;
+    color: #39ff14;
+    user-select: none;
+  }
+  footer a {
+    color: #39ff14;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  footer a:hover {
+    color: #00ff00;
+    text-decoration: underline;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 2.5rem;
+    }
+    .image-track img {
+      width: 100px;
+      height: 70px;
+      margin-right: 10px;
+    }
+    .details p {
+      font-size: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>GIUSEPPE</h1>
+    </header>
+
+    <!-- Image slider: add images inside the 'images' folder to be scrolled -->
+    <div class="image-slider" aria-label="Portfolio images scrolling left to right">
+      <div class="image-track" aria-hidden="true">
+        <!-- Repeat images twice for seamless loop -->
+        <img src="images/image1.jpg" alt="Project 1 image" />
+        <img src="images/image2.jpg" alt="Project 2 image" />
+        <img src="images/image3.jpg" alt="Project 3 image" />
+        <img src="images/image4.jpg" alt="Project 4 image" />
+        <img src="images/image5.jpg" alt="Project 5 image" />
+        <img src="images/image1.jpg" alt="Project 1 image" />
+        <img src="images/image2.jpg" alt="Project 2 image" />
+        <img src="images/image3.jpg" alt="Project 3 image" />
+        <img src="images/image4.jpg" alt="Project 4 image" />
+        <img src="images/image5.jpg" alt="Project 5 image" />
+      </div>
+    </div>
+
+    <!-- Editable section for your details -->
+    <section class="details" aria-label="Personal and professional details">
+      <h2>About Me</h2>
+      <p>
+        <!-- Change these details to your own -->
+        Hello! I'm Giuseppe, a passionate UI/UX designer with 10 years of experience creating sleek, functional digital experiences. I specialize in blending clean design with smooth animations for an engaging user interface.
+      </p>
+
+      <h2>Skills & Expertise</h2>
+      <p>
+        UX Research · Wireframing · Prototyping · Visual Design · Interaction Design · Frontend Development (HTML, CSS, JS)
+      </p>
+    </section>
+  </div>
+
+  <!-- Footer with contact info -->
+  <footer>
+    Contact me: 
+    <a href="mailto:giuseppe@example.com">giuseppe@example.com</a> | 
+    <a href="tel:+1234567890">+1 234 567 890</a> | 
+    <a href="https://linkedin.com/in/giuseppe" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </footer>
+</body>
+</html>
